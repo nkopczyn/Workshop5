@@ -9,6 +9,7 @@ import java.util.Optional;
 @Component
 public class MockBookService implements BookService {
 
+    private static Long nextId = 1L;
     private List<Book> list = new ArrayList<>();
 
     public MockBookService(List<Book> list) {
@@ -31,6 +32,7 @@ public class MockBookService implements BookService {
     }
 
     public void add(Book book) {
+        book.setId(nextId++);
         list.add(book);
     }
 
