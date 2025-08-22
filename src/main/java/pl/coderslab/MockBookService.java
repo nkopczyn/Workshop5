@@ -22,12 +22,13 @@ public class MockBookService implements BookService {
     }
 
     public Optional<Book> get(Long id) {
+        Optional<Book> result = null;
         for (Book item : list) {
             if (item.getId().equals(id)) {
-                return Optional.of(item);
+                result = Optional.of(item);
             }
         }
-        return Optional.empty();
+        return result;
     }
 
     public void add(Book book) {
